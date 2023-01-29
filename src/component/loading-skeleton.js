@@ -7,15 +7,19 @@ const LoadingSkeleton = () => {
   // const bpSMu = theme.breakpoints.up("sm");
   return (
     <Stack
-    direction={"row"}
-      spacing={{xs: 0, sm:2}}
-      sx={{ flexDirection: "row", marginBottom: "30px", [bpSMd]: { flexDirection: "column" } }}
+      direction={"row"}
+      spacing={{ xs: 0, sm: 2 }}
+      sx={{
+        flexDirection: "row",
+        marginBottom: "30px",
+        [bpSMd]: { flexDirection: "column" },
+      }}
     >
       {/* For variant="text", adjust the height via font-size */}
       <Skeleton
         animation="wave"
         variant="rounded"
-        sx={{ width: "350px", height: "250px",  }}
+        sx={{ width: "350px", height: "250px" }}
       />
       <Box
         sx={{
@@ -28,17 +32,27 @@ const LoadingSkeleton = () => {
           <Skeleton
             animation="wave"
             variant="text"
-            sx={{ fontSize: "2rem",width: "500px", [bpSMd]: { width: "100%" } }}
+            sx={{
+              fontSize: "2rem",
+              width: "500px",
+              [bpSMd]: { width: "100%" },
+            }}
           />
           <Skeleton
             animation="wave"
             variant="text"
-            sx={{ fontSize: "0.6rem", width: "150px", marginBottom: "10px", [bpSMd]: { width: "40%" }  }}
+            sx={{
+              fontSize: "0.6rem",
+              width: "150px",
+              marginBottom: "10px",
+              [bpSMd]: { width: "40%" },
+            }}
           />
         </Box>
         <Box sx={{ marginBottom: "100px" }}>
-          {[1, 2, 3, 4, 5, 6].map((text) => (
+          {[1, 2, 3, 4, 5, 6].map((text, key) => (
             <Skeleton
+              key={key}
               animation="wave"
               variant="text"
               sx={{ fontSize: "0.8rem", [bpSMd]: { width: "100%" } }}
@@ -48,7 +62,12 @@ const LoadingSkeleton = () => {
         <Skeleton
           animation="wave"
           variant="text"
-          sx={{ fontSize: "0.6rem",width: "180px",  marginBottom: "10px", [bpSMd]: { width: "40%" } }}
+          sx={{
+            fontSize: "0.6rem",
+            width: "180px",
+            marginBottom: "10px",
+            [bpSMd]: { width: "40%" },
+          }}
         />
       </Box>
     </Stack>

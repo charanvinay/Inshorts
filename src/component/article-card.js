@@ -11,15 +11,8 @@ import moment from "moment";
 import NoImage from "../assets/no-image.jpg";
 
 const ArticleCard = (props) => {
-  let {
-    author,
-    content,
-    publishedAt,
-    title,
-    url,
-    urlToImage,
-    source,
-  } = props.article;
+  let { author, content, publishedAt, title, link, image_url, source_id } =
+    props.article;
   const theme = useTheme();
   const bpSMd = theme.breakpoints.down("sm"); //max-width:599.95px
   const bpSMu = theme.breakpoints.up("sm"); //min-width:600px
@@ -57,7 +50,7 @@ const ArticleCard = (props) => {
       >
         <Box
           component={"img"}
-          src={urlToImage || NoImage}
+          src={image_url || NoImage}
           alt="article_image"
           sx={{
             width: "325px",
@@ -67,7 +60,7 @@ const ArticleCard = (props) => {
             justifyContent: "center",
             objectFit: "cover",
             borderRadius: "4px",
-            [bpSMd]: { width: "100%"},
+            [bpSMd]: { width: "100%" },
           }}
         />
       </Box>
@@ -77,7 +70,7 @@ const ArticleCard = (props) => {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "5px",
-          [bpSMu]: { padding: "2px 20px"},
+          [bpSMu]: { padding: "2px 20px" },
         }}
       >
         {/* title */}
@@ -85,7 +78,7 @@ const ArticleCard = (props) => {
           <Typography
             gutterBottom
             variant="body1"
-            onClick={() => window.open(url)}
+            onClick={() => window.open(link)}
             sx={{
               cursor: "pointer",
               fontWeight: "bold",
@@ -99,34 +92,72 @@ const ArticleCard = (props) => {
               gutterBottom
               variant="caption"
               component="text.secondary"
-              sx={{ fontWeight: "bold", [bpSMd]: { fontSize: 11} }}
+              sx={{ fontWeight: "bold", [bpSMd]: { fontSize: 11 } }}
             >
               Short
             </Typography>
-            <Typography gutterBottom variant="caption" component="text.secondary" sx={{[bpSMd]: { fontSize: 11}}}>
+            <Typography
+              gutterBottom
+              variant="caption"
+              component="text.secondary"
+              sx={{ [bpSMd]: { fontSize: 11 } }}
+            >
               {`by ${author || ""} / ${moment(publishedAt).format(
                 "MMMM Do YYYY, h:mm a"
               )}`}
             </Typography>
           </Stack>
-          <Box sx={{width: 60, height: 2, backgroundColor: "red", marginBottom: "4px"}}></Box>
-          <Box sx={{width: 30, height: 2, backgroundColor: "red", marginBottom: "5px"}}></Box>
-          <Typography variant="body2" color="text.secondary">
+          <Box
+            sx={{
+              width: 60,
+              height: 2,
+              backgroundColor: "red",
+              marginBottom: "4px",
+            }}
+          ></Box>
+          <Box
+            sx={{
+              width: 30,
+              height: 2,
+              backgroundColor: "red",
+              marginBottom: "5px",
+            }}
+          ></Box>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              display: "-webkit-box",
+              WebkitLineClamp: "5",
+              WebkitBoxOrient: "vertical",
+            }}
+          >
             {content}
           </Typography>
         </Box>
         <Stack direction={"row"} spacing={1} sx={{ marginTop: "10px" }}>
-          <Typography gutterBottom variant="body2" component="text.secondary" sx={{[bpSMd]: { fontSize: 11}}}>
+          <Typography
+            gutterBottom
+            variant="body2"
+            component="text.secondary"
+            sx={{ [bpSMd]: { fontSize: 11 } }}
+          >
             read more at
           </Typography>
           <Typography
             gutterBottom
             variant="body2"
-            sx={{ fontWeight: "bold", cursor: "pointer", [bpSMd]: { fontSize: 11} }}
+            sx={{
+              fontWeight: "bold",
+              cursor: "pointer",
+              [bpSMd]: { fontSize: 11 },
+            }}
             component="text.secondary"
-            onClick={() => window.open(url)}
+            onClick={() => window.open(link)}
           >
-            {source.name || ""}
+            {source_id.name || ""}
           </Typography>
         </Stack>
       </CardContent>
