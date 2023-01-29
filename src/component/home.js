@@ -19,7 +19,7 @@ const Home = () => {
     let apiUrl = `https://newsapi.org/v2/top-headlines?country=in&apiKey=f18f0e0eeee245d98a97fdb0a6378591&pageSize=100`;
     let response = await fetch(apiUrl);
     let json = await response.json();
-    if (json.status == "ok") {
+    if (json.status === "ok") {
       setArticles(json.articles);
     } else {
     }

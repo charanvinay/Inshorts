@@ -1,9 +1,7 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "../assets/logo_inshorts.png";
 import { Box } from "@mui/material";
 

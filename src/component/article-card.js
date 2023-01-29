@@ -1,13 +1,9 @@
 import {
   Box,
   Card,
-  CardActionArea,
   CardContent,
-  CardMedia,
-  makeStyles,
   Stack,
   Typography,
-  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import React from "react";
@@ -18,7 +14,6 @@ const ArticleCard = (props) => {
   let {
     author,
     content,
-    description,
     publishedAt,
     title,
     url,

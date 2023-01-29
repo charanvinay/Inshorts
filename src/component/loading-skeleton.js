@@ -4,7 +4,7 @@ import React from "react";
 const LoadingSkeleton = () => {
   const theme = useTheme();
   const bpSMd = theme.breakpoints.down("sm"); //max-width:599.95px
-  const bpSMu = theme.breakpoints.up("sm");
+  // const bpSMu = theme.breakpoints.up("sm");
   return (
     <Stack
     direction={"row"}
